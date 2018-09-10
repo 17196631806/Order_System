@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="cn.itcast.dao.FoodTypeDao">
+
+    <select id="getAllData" resultType="cn.itcast.model.FoodType">
+    SELECT * FROM foodType;
+    </select>
+
+    <select id="save" parameterType="cn.itcast.model.FoodType">
+        insert into foodType (typeName) values (#{typeName,jdbcType=VARCHAR});
+    </select>
+
+    <select id="findById" parameterType="cn.itcast.model.FoodType" resultType="cn.itcast.model.FoodType">
+        select * from foodType where id = #{id,jdbcType=INTEGER};
+    </select>
+
+    <select id="update" parameterType="cn.itcast.model.FoodType">
+        update foodType set typeName = #{typeName,jdbcType=VARCHAR} WHERE id = #{id,jdbcType=INTEGER};
+    </select>
+
+    <select id="delete" parameterType="cn.itcast.model.FoodType">
+        DELETE FROM foodType WHERE id = #{id,jdbcType=INTEGER};
+    </select>
+
+
+    <!--<insert id="add" parameterType="com.chatRobot.model.User">-->
+    <!--insert into user(email,password,username,role,status,regTime,regIp) values (#{email}, #{password},#{username},#{role},#{status},#{regTime},#{regIp})-->
+    <!--</insert>-->
+
+
+
+
+    <select id="login" resultType="cn.itcast.model.User" parameterType="cn.itcast.model.User">
+        SELECT * FROM adminUser WHERE username= #{username,jdbcType=VARCHAR} AND password= #{password,jdbcType=VARCHAR};
+    </select>
+
+    <select id="modifyPassword" parameterType="java.lang.Integer">
+        UPDATE adminUser SET  password== #{password},  WHERE id = #{id,jdbcType=INTEGER};
+    </select>
+
+</mapper>
