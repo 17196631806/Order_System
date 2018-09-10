@@ -102,7 +102,7 @@
 	
    <!-- 其他功能超链接 -->
 	<div id="TableTail" align="center">
-		<div class="FunctionButton"><a href="saveBoard.html">添加</a></div>
+		<div class="FunctionButton"><a href="${pageContext.request.contextPath }/views/foodTable/saveBoard.jsp">添加</a></div>
     </div> 
 </div>
 </body>
