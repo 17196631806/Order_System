@@ -92,13 +92,13 @@ body {
 			</div>
             <ul class="MenuLevel2">
             	<li class="level2 level2Style">
-                    <a target="right" href="${pageContext.request.contextPath }/views/foodTable/boardList.jsp">餐桌管理</a>
+                    <a target="right" href="${pageContext.request.contextPath }/foodTable?method=list">餐桌管理</a>
 				</li>
                 <li class="level2 level2Style">
                 	<a target="right" href="${pageContext.request.contextPath }/foodType?method=list">菜系管理</a>
 				</li>
                 <li class="level2 level2Style">
-                	<a target="right" href="${pageContext.request.contextPath }/views/public/foodList.jsp">菜品管理</a>
+                	<a target="right" href="${pageContext.request.contextPath }/food?method=list">菜品管理</a>
 				</li>
                 <li class="level2 level2Style">
                 	<a target="right" href="orderList.html">餐厅订单</a>

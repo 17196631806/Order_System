@@ -16,6 +16,10 @@
         select * from foodType where id = #{id,jdbcType=INTEGER};
     </select>
 
+    <select id="getAll" parameterType="cn.itcast.model.FoodType" resultType="cn.itcast.model.FoodType">
+        select * from foodType where typeName = #{typeName,jdbcType=VARCHAR};
+    </select>
+
     <select id="update" parameterType="cn.itcast.model.FoodType">
         update foodType set typeName = #{typeName,jdbcType=VARCHAR} WHERE id = #{id,jdbcType=INTEGER};
     </select>

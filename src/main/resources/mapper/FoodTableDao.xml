@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="cn.itcast.dao.FoodTableDao">
+
+    <select id="add" resultType="cn.itcast.model.FoodTable">
+      insert into dinnertable(tableName) values (#{tableName,jdbcType=VARCHAR});
+    </select>
+
+    <select id="queryAll" resultType="cn.itcast.model.FoodTable">
+      SELECT * FROM dinnertable;
+    </select>
+
+    <select id="findById" parameterType="java.lang.Integer" resultType="cn.itcast.model.FoodTable">
+        select * from dinnertable
+          <where>
+              <if test="_parameter != null and _parameter != ''">
+                id = #{_parameter,jdbcType=INTEGER}
+                </if>
+          </where>
+    </select>
+
+    <select id="query" parameterType="cn.itcast.model.FoodTable" resultType="cn.itcast.model.FoodTable">
+        select * from dinnertable where tableName = #{tableName,jdbcType=VARCHAR};
+    </select>
+
+    <select id="update" parameterType="cn.itcast.model.FoodTable">
+        update dinnertable set
+          tableStatus = #{tableStatus,jdbcType=INTEGER},
+          orderDate=#{orderDate,jdbcType=VARCHAR}
+        WHERE id=#{id,jdbcType=INTEGER};
+    </select>
+
+    <select id="delete" parameterType="java.lang.Integer">
+        DELETE FROM dinnertable
+        <where>
+            <if test="_parameter != null and _parameter != ''">
+                id = #{_parameter,jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
+
+</mapper>

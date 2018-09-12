@@ -49,6 +49,11 @@ public class FoodTypeServlet {
         } else if ("delete".equals(method)) {
 
             delete(foodType,request,response);
+
+        } else if ("search".equals(method)) {
+
+            search(foodType,request,response);
+
         }
     }
 
@@ -117,6 +122,21 @@ public class FoodTypeServlet {
 
         foodTypeService.delete(foodType.getId());
         request.getRequestDispatcher("/foodType?method=list").forward(request,response);
+
+    }
+
+    /**
+     * 按照菜系搜索
+     * @param foodType
+     * @param request
+     * @param response
+     * @throws Exception
+     */
+    public void search(FoodType foodType,HttpServletRequest request,HttpServletResponse response) throws Exception{
+
+        List<FoodType> list = foodTypeService.getAll(foodType);
+        request.setAttribute("listFoodType", list);
+        request.getRequestDispatcher("/views/foodType/foodtype_list.jsp").forward(request,response);
 
     }
 

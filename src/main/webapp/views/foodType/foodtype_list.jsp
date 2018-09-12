@@ -29,9 +29,9 @@
 	</div>
 	<!-- 过滤条件 -->
 	<div id="QueryArea">
-		<form action="/wirelessplatform/cuisine.html" method="get">
-			<input type="hidden" name="method" value="search">
-			<input type="text" name="keyword" title="请输入菜系名称">
+		<form action="${pageContext.request.contextPath }/foodType?method=search" method="post">
+			<%--<input type="hidden" name="method" value="search">--%>
+			<input type="text" name="typeName" title="请输入菜系名称">
 			<input type="submit" value="搜索">
 		</form>
 	</div>
@@ -52,9 +52,9 @@
 					<c:choose>
 						<c:when test="${not empty requestScope.listFoodType}">
 							
-							<c:forEach var="foodType" items="${requestScope.listFoodType}">
+							<c:forEach var="foodType" items="${requestScope.listFoodType}" varStatus="vs">
 								<tr>
-									<td>${foodType.id }</td>
+									<td>${vs.count }</td>
 									<td>${foodType.typeName }</td>
 									<td>
 										<a href="${pageContext.request.contextPath }/foodType?id=${foodType.id}&method=viewUpdate" class="FunctionButton">更新</a> 

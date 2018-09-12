@@ -39,8 +39,8 @@ public interface FoodTypeService {
 
     /**
      * 根据菜系类型查询
-     * @param typeName
+     * @param foodType
      * @return
      */
-    List<FoodType>getAll(String typeName);
+    List<FoodType>getAll(FoodType foodType);
 }

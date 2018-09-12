@@ -46,8 +46,8 @@ public class FoodTypeServiceImpl implements FoodTypeService {
     }
 
     @Override
-    public List<FoodType> getAll(String typeName){
-        return foodTypeDao.getAll(typeName);
+    public List<FoodType> getAll(FoodType foodType){
+        return foodTypeDao.getAll(foodType);
     }
 
 }

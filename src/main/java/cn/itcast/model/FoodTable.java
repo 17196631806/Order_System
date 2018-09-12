@@ -1,5 +1,7 @@
 package cn.itcast.model;
 
+import java.util.Date;
+
 /**
  * @program: order
  * @description:
@@ -8,9 +10,9 @@ package cn.itcast.model;
  */
 public class FoodTable {
     private int id;
-    private String foodTable;
-    private Integer state;
-    private String time;
+    private String tableName;
+    private int tableStatus;
+    private String orderDate;
 
     public int getId() {
         return id;
@@ -20,27 +22,27 @@ public class FoodTable {
         this.id = id;
     }
 
-    public String getFoodTable() {
-        return foodTable;
+    public String getTableName() {
+        return tableName;
     }
 
-    public void setFoodTable(String foodTable) {
-        this.foodTable = foodTable;
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 
-    public Integer getState() {
-        return state;
+    public int getTableStatus() {
+        return tableStatus;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setTableStatus(int tableStatus) {
+        this.tableStatus = tableStatus;
     }
 
-    public String getTime() {
-        return time;
+    public String getOrderDate() {
+        return orderDate;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
 }
